@@ -1,1 +1,1 @@
-"# Qualiti Utils" 
+# Qualiti Utils
