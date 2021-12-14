@@ -21,8 +21,7 @@ if [ -z "$GITHUB_TOKEN" ]; then
   exit 1
 fi
 
-sudo apt-get update
-sudo apt-get install expect -q
+sudo apt-get update && sudo apt-get install expect -yq --no-install-recommends
 
 /usr/bin/expect <<EOD
   spawn npm login --registry=https://npm.pkg.github.com --scope=@qualiti-ai
