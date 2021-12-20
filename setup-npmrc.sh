@@ -21,9 +21,11 @@ if [ -z "$GITHUB_TOKEN" ]; then
   exit 1
 fi
 
+echo "Logging into NPM for Github..."
 npm set @qualiti-ai:registry "https://npm.pkg.github.com"
 npm set registry "https://registry.npmjs.org"
 npm set //npm.pkg.github.com/:_authToken $GITHUB_TOKEN
+echo "NPM Logged in!"
 
 # sudo apt-get update && sudo apt-get install expect -yq --no-install-recommends
 
