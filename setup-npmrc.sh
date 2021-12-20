@@ -3,15 +3,15 @@
 
 set -e
 
-if [ -z "$QUALITI_GITHUB_USERNAME" ]; then
+if [ -z "$GITHUB_USERNAME" ]; then
   echo ""
-  echo "ERROR: No QUALITI_GITHUB_USERNAME defined in environment variables. Be sure to set your username in Gitpod or in your environment variables before continuing."
+  echo "ERROR: No GITHUB_USERNAME defined in environment variables. Be sure to set your username in Gitpod or in your environment variables before continuing."
   exit 1
 fi
 
-if [ -z "$QUALITI_GITHUB_EMAIL" ]; then
+if [ -z "$GITHUB_EMAIL" ]; then
   echo ""
-  echo "ERROR: No QUALITI_GITHUB_EMAIL defined in environment variables. Be sure to set your username in Gitpod or in your environment variables before continuing."
+  echo "ERROR: No GITHUB_EMAIL defined in environment variables. Be sure to set your username in Gitpod or in your environment variables before continuing."
   exit 1
 fi
 
@@ -26,8 +26,8 @@ sudo apt-get update && sudo apt-get install expect -yq --no-install-recommends
 /usr/bin/expect <<EOD
   spawn npm login --registry=https://npm.pkg.github.com --scope=@qualiti-ai
   expect {
-      "Username: " {send "$QUALITI_GITHUB_USERNAME\r"; exp_continue}
+      "Username: " {send "$GITHUB_USERNAME\r"; exp_continue}
       "Password: " {send "$GITHUB_TOKEN\r"; exp_continue}
-      "Email: (this IS public) " {send "$QUALITI_GITHUB_EMAIL\r"; exp_continue}
+      "Email: (this IS public) " {send "$GITHUB_EMAIL\r"; exp_continue}
   }
 EOD
