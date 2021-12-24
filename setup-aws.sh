@@ -1,10 +1,22 @@
 #!/bin/bash
 set -ex
 
+echo "Setting up AWS..."
+
 mkdir -p ~/.aws
 
+if ! [[ ! -z "${AWS_SECRET_ACCESS_KEY}" ]]; then
+  echo "AWS_SECRET_ACCESS_KEY env not set. Cannot setup AWS"
+  exit 1
+fi
+
 if ! [[ ! -z "${AWS_ACCESS_KEY_ID}" ]]; then
-  echo "Unable to setup aws since envs are not set!"
+  echo "AWS_ACCESS_KEY_ID env not set. Cannot setup AWS"
+  exit 1
+fi
+
+if ! [[ ! -z "${AWS_REGION}" ]]; then
+  echo "AWS_REGION env not set. Cannot setup AWS"
   exit 1
 fi
 
