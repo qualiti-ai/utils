@@ -19,3 +19,5 @@ echo "" >> report.txt
 # Grabbing drive encryption evidence
 echo "=====================  CHECK DRIVE ENCRYPTION  =================================" >> report.txt
 bash linux_check_drive_encryption.sh >> report.txt
+echo "=====================  CHECK USER PASSWORD  =================================" >> report.txt
+bash linux_check_user_passwords.sh >> report.txt
