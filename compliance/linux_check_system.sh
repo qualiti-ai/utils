@@ -5,7 +5,7 @@ echo "Command Run: date" >> report.txt
 date >> report.txt
 echo "" >> report.txt
 # Grab System Info. 
-echo "sudo dmidecode -t system | grep -A8 \"System Information\"" >> report.txt
+echo "Command Run: sudo dmidecode -t system | grep -A8 \"System Information\"" >> report.txt
 sudo dmidecode -t system | grep -A8 "System Information" >> report.txt
 echo "" >> report.txt
 echo "" >> report.txt
